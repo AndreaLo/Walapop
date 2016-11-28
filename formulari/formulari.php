@@ -38,14 +38,9 @@ if(isset($_POST["nombre"])){
     $query->execute();
     $row = $query->fetch();
 
-
-
-
-
 echo '<div class="container espai-formulari">';
 	echo '<div class="row">';
 		echo '<div class="plantilla col-md-8 col-md-offset-1">';
-		//registro.php
 			echo '<form action="registro.php" class="form-signin" method="POST">';
 				echo '<h2 class="form-signin-heading">Formulario de registro</h2>';
 					echo '<label for="inputEmail">Nombre</label>';
@@ -105,13 +100,12 @@ echo '<div class="container espai-formulari">';
     
    						 echo '<option name="option" value="'.$row['CODIGO_POSTAL'].'"  required autofocus>'.$row['CODIGO_POSTAL'].' '.$row['NOMBRE'].'</option>';
    						 $row = $query->fetch();
-  					}
-  					
+  					}					
   					echo '</select>';
   					  //eliminem els objectes per alliberar memòria 
 				    unset($pdo); 
 				    unset($query);
-					//echo '<input type="text" aria-hidden="true" name="codi" class="form-control" placeholder="Username" aria-describedby="basic-addon1" value="'.$registre["codi"].'" required autofocus>';
+
 					echo '</div>';	
 					echo '<br>';
 
