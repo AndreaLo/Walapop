@@ -21,9 +21,31 @@ if(isset($_POST["nombre"])){
 
 }
 
-echo '<div class="container longitud">';
+
+ try {
+    $hostname = "localhost";
+    $dbname = "wallapop";
+    $username = "root";
+    $pw = "13246589";
+    $pdo = new PDO ("mysql:host=$hostname;dbname=$dbname","$username","$pw");
+  } catch (PDOException $e) {
+    echo "Failed to get DB handle: " . $e->getMessage() . "\n";
+    exit;
+  }
+
+    //comprobarcion de que no exista el email previamente
+    $query = $pdo->prepare("SELECT * FROM CIUDADES ORDER BY NOMBRE");
+    $query->execute();
+    $row = $query->fetch();
+
+
+
+
+
+echo '<div class="container espai-formulari">';
 	echo '<div class="row">';
 		echo '<div class="plantilla col-md-8 col-md-offset-1">';
+		//registro.php
 			echo '<form action="registro.php" class="form-signin" method="POST">';
 				echo '<h2 class="form-signin-heading">Formulario de registro</h2>';
 					echo '<label for="inputEmail">Nombre</label>';
@@ -77,7 +99,19 @@ echo '<div class="container longitud">';
 					echo '<span class="input-group-addon">';
 					echo '<i class="fa fa-globe" aria-hidden="true"></i>';
 					echo '</span>';
-					echo '<input type="text" aria-hidden="true" name="codi" class="form-control" placeholder="Username" aria-describedby="basic-addon1" value="'.$registre["codi"].'" required autofocus>';
+					echo '<select class="form-control" name="codi" aria-hidden="true" id="codi" required autofocus>';
+					echo '<option name="option" value="" ></option>';
+					while ( $row ) {
+    
+   						 echo '<option name="option" value="'.$row['CODIGO_POSTAL'].'"  required autofocus>'.$row['CODIGO_POSTAL'].' '.$row['NOMBRE'].'</option>';
+   						 $row = $query->fetch();
+  					}
+  					
+  					echo '</select>';
+  					  //eliminem els objectes per alliberar memòria 
+				    unset($pdo); 
+				    unset($query);
+					//echo '<input type="text" aria-hidden="true" name="codi" class="form-control" placeholder="Username" aria-describedby="basic-addon1" value="'.$registre["codi"].'" required autofocus>';
 					echo '</div>';	
 					echo '<br>';
 
