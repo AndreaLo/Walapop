@@ -1,0 +1,13 @@
+/*css del fondo del body*/
+.container-fluid{
+	height: 800px;
+	background: rgba(29,233,182,0.2);
+	
+}
+
+
+/*css del formulari*/
+.plantilla {
+	background: white;
+	border-radius: 25px;
+}
