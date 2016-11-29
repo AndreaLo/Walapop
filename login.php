@@ -1,3 +1,20 @@
+<?php
+	session_start();
+	if(!isset($_SESSION['permiso'])){
+		$_SESSION['permiso']=null;
+	}
+	if(isset($_POST['submit'])){
+		comprobarLogin();
+		if(!$_SESSION['permiso']){
+			echo "<script>alert('Alguno de los datos introducidos es incorrecto, vuelva a intentarlo');</script>";
+		}
+		else{
+			$_SESSION['email']=$_POST['email'];
+			
+		}
+	}
+	
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -17,8 +34,17 @@
 			.tituloPanel{
 					text-align: center;
 				}
+			#nuevoRegistro{
+				float: right;							
+				}
+			.text-warning{
+				margin-top: 12% !important;
+				margin-bottom: 0px !important;
+				padding-bottom: 0px !important;
+				border-bottom: 0px !important;
+			}
 		</style>
-		<?php
+		<?php	
 		function comprobarLogin(){
 			try {
 				$hostname = "localhost";
@@ -26,31 +52,32 @@
 				$username = "root";
 				$pw = "andrea1234";
 				$pdo = new PDO ("mysql:host=$hostname;dbname=$dbname","$username","$pw");
+			
 			} catch (PDOException $e) {
-				return false;
-			exit;
+				 $_SESSION['permiso']=false;
+				exit;
 			}
 			try{
 				$query = $pdo->prepare("select password FROM USUARIOS WHERE email ='".$_POST['email']."';");
 				$query->execute();
 						
 				$row = $query->fetch();
-				if($_POST['password'] == $row['password']){ 
-								
-			}} catch (PDOException $e){
-				return false;
+				if($row==null){
+					echo "mail null";
+					$_SESSION['permiso']=false;
+					}		
+				$EncPassword = hash('sha512', $_POST['password']);
+				
+				if($EncPassword == $row['password']){ 
+					$_SESSION['permiso']=true;
+				}
+				else $_SESSION['permiso']=false;
+			}catch (PDOException $e){
+				$_SESSION['permiso']=false;
 			}
-			return true;
 			unset($pdo); 
 			unset($query);
-			}
-		
-		if(isset($_POST['submit'])){
-			$valido = comprobarLogin();	
-			if($valido){
-				//mostrar mensaje bajo 'entrar' dentro del panel
-				}		
-			}
+			}		
 		?>
 	</head>
 	<body>
@@ -68,6 +95,7 @@
 							<input type="password" name="password" class="form-control" id="pwd">
 						</div>
 						<button type="submit" name="submit" class="btn btn-warning">Enviar</button>
+						<a href="registro.php" id='nuevoRegistro'><p class="text-warning">Me quiero registrar!</p></a>
 					</form>	
 				</div>
 			</div>

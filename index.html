@@ -1,3 +1,31 @@
+<?php
+	function mostrarCategoria(){
+			try {
+				$hostname = "localhost";
+				$dbname = "walapop";
+				$username = "root";
+				$pw = "andrea1234";
+				$pdo = new PDO ("mysql:host=$hostname;dbname=$dbname","$username","$pw");
+			
+			} catch (PDOException $e) {
+				 echo "El acceso a la DDBB a fallado: " . $e->getMessage() . "\n";
+				 exit;
+			}
+
+			$query = $pdo->prepare("select nombre FROM CATEGORIAS;");
+			$query->execute();
+
+			$row = $query->fetch();
+			while ( $row ) {
+				echo "<li><a href='#'>".$row['nombre']."</a></li>";	
+				$row = $query->fetch();
+			}
+
+			unset($pdo); 
+			unset($query);
+		}
+		?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -65,27 +93,15 @@
 				<div id="dropdown-lvl1" class="panel-collapse collapse">
 					<div class="panel-body">
 						<ul class="nav navbar-nav">
-							<li><a href="#">Electronica</a></li>
+							<?php
+								mostrarCategorias();
+							?>
+							<!--<li><a href="#">Electronica</a></li>
 							<li><a href="#">Deportes</a></li>
 							<li><a href="#">Coches y motos</a></li>
 							<li><a href="#">Juegos y consolas</a></li>
-							<li><a href="#">Libros peliculas y musica</a></li>
-								<!-- Dropdown level 2 -->
-							<!--<li class="panel panel-default" id="dropdown">
-								<a data-toggle="collapse" href="#dropdown-lvl2">
-									<span class="glyphicon glyphicon-off"></span> Sub Level <span class="caret"></span>
-								</a>
-								<div id="dropdown-lvl2" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul class="nav navbar-nav">
-											<li><a href="#">Link</a></li>
-											<li><a href="#">Link</a></li>
-											<li><a href="#">Link</a></li>
-										</ul>
-									</div>
-								</div>
-							</li>-->
-						</ul>
+							<li><a href="#">Libros peliculas y musica</a></li>	-->						
+						</ul>-
 					</div>
 				</div>
 			</li>
