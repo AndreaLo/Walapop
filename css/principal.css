@@ -1,0 +1,53 @@
+
+*{
+	box-sizing: border-box;
+}
+
+.side-body {
+
+	
+	display: flex;
+	flex-direction: column;
+
+
+}
+.separacion{
+	margin :10px;
+	margin-top:0;
+}
+
+.grupo {
+	
+
+	margin-top:0;
+	flex-wrap: wrap;
+	overflow: hidden;
+	width: 250px;
+	border-radius: 25px;
+	box-shadow: 5px 5px 10px gray;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	margin-bottom: 25px;
+
+	
+}
+
+.altura1 {
+	height: 450px;
+}
+
+.altura2 {
+
+	height: 370px;
+}
+
+.flex {
+		justify-content: center;
+	
+	flex-direction: row;
+	display: flex;
+	
+	 flex-wrap: wrap;
+
+}
