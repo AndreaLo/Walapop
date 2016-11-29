@@ -49,13 +49,13 @@ if (strcmp($password, $rePassword) == 0 && is_int($codi) &&  $comprobar_email) {
 	  $query = $pdo->prepare("INSERT INTO USUARIOS (NOMBRE,APELLIDO,EMAIL,PASSWORD,CODIGO_POSTAL) VALUES ('".$registre['nombre']."','".$registre['apellidos']."','".$registre['mail']."','".$EncPassword."','".$registre['codi']."')");
 	  $query->execute();
 
-	 echo '<div class="alert alert-success" role="alert"><h4>Se ha realizado el registro correctamente</h4></div>';
+	 echo '<div class="espai alert alert-success" role="alert"><h4>Se ha realizado el registro correctamente</h4></div>';
    //devuelve cierto y desde la pagina registro se imprimira la confirmacion
    return true;
 }else{
 
       //mensaje de error con los posibles fallos
-  	 echo '<div class="alert alert-danger" role="alert"><h4><strong>No se ha efectuado el registro.</strong></h4><h4>* Contraseña erronea. <br>* Email ya existente. <br>* Codigo postal no es un número</h4></div>';
+  	 echo '<div class="espai alert alert-danger" role="alert"><h4><strong>No se ha efectuado el registro.</strong></h4><h4>* Contraseña erronea. <br>* Email ya existente. <br>* Codigo postal no es un número</h4></div>';
      //devuelve falso y desde la pagina registro se vuelve a imprimir el formulario
      return false;
   }
