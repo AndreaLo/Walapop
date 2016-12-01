@@ -23,7 +23,7 @@
 			unset($pdo); 
 			unset($query);
 		}
-	function mostrarProductosPorFecha(){
+	function mostrarProductosElectronica(){
 		 try {
 						    $hostname = "localhost";
 						    $dbname = "Gualahop";
@@ -35,7 +35,7 @@
 						    exit;
 						  }
 						    //comprobarcion de que no exista el email previamente
-						    $query = $pdo->prepare("SELECT * FROM PRODUCTOS WHERE IMAGEN<>'null' ORDER BY fecha_publicacion desc"); //order by fecha desc
+						    $query = $pdo->prepare("SELECT * FROM PRODUCTOS WHERE id_categoria = 1 ORDER BY fecha_publicacion desc"); //order by fecha desc
 						    $query->execute();
 						    $row = $query->fetch();
 						  
@@ -143,7 +143,7 @@
 				<h1> Main Content here </h1>
 				<pre> Resize the screen to view the left slide menu </pre>
 					<?php
-						 mostrarProductosPorFecha();								
+						 mostrarProductosElectronica();								
 					?>
 			</div>
 		</div>
