@@ -10,7 +10,7 @@
 		}
 		else{
 			$_SESSION['email']=$_POST['email'];
-			
+			header('Location: index.php');
 		}
 	}
 	
@@ -48,7 +48,7 @@
 		function comprobarLogin(){
 			try {
 				$hostname = "localhost";
-				$dbname = "walapop";
+				$dbname = "Gualahop";
 				$username = "root";
 				$pw = "andrea1234";
 				$pdo = new PDO ("mysql:host=$hostname;dbname=$dbname","$username","$pw");

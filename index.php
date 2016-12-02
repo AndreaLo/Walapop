@@ -2,7 +2,7 @@
 	function mostrarCategoria(){
 			try {
 				$hostname = "localhost";
-				$dbname = "Gualahop";
+				$dbname = "walapop";
 				$username = "root";
 				$pw = "andrea1234";
 				$pdo = new PDO ("mysql:host=$hostname;dbname=$dbname","$username","$pw");

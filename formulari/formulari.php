@@ -24,9 +24,9 @@ if(isset($_POST["nombre"])){
 
  try {
     $hostname = "localhost";
-    $dbname = "wallapop";
+    $dbname = "Gualahop";
     $username = "root";
-    $pw = "13246589";
+    $pw = "andrea1234";
     $pdo = new PDO ("mysql:host=$hostname;dbname=$dbname","$username","$pw");
   } catch (PDOException $e) {
     echo "Failed to get DB handle: " . $e->getMessage() . "\n";
