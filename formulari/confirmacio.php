@@ -1,11 +1,11 @@
 <?php
-
+//start_session();
 function imprimir_confirmacio($nombre){
 	echo '<div class="container longitud">';
 		echo '<div class="row">';
 			echo '<div class="col-md-8 col-md-offset-1">'; 
 						echo	'<div class="panel-group">';
-				 			   echo '<h2>Vienvenido a Wallapop!</h2>';
+				 			   echo '<h2>Bienvenido a Wallapop!</h2>';
 							   echo' <div class="panel panel-success">';
 							     echo' <div class="panel-heading">Hola '.$nombre.'!, tu cuenta ha sido creada correctamente.</div>';
 									    echo'  <div class="panel-body">
@@ -16,9 +16,13 @@ function imprimir_confirmacio($nombre){
 													<br>
 													<li>Podrás visualizar tus favoritos, poner a la venta productos y comprar</li>
 													<br>
-													<button type="button" class="btn btn-primary">Inicia session</button>
+													<button type="button" class="btn btn-primary" onClick="location.href=\'index.php\'">Inicia session</button>
+
 
 												</ul>';
+												$_SESSION["email"]=$_POST["mail"];
+												print_r($_SESSION);
+												print_r($_POST);
 									    echo '</div>';
 							   echo' </div>';        
 				        echo' </div>';
