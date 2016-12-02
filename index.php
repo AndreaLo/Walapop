@@ -1,10 +1,26 @@
+
+<?php 
+
+
+if(isset($_GET["reset"])){
+	print_r($_SESSION);
+	session_destroy();
+	session_start();	
+	echo 'sesion destrozada';
+	$_SESSION["email"]=null;
+	print_r($_SESSION);
+
+}
+
+?>
+
 <?php
 	function mostrarCategoria(){
 			try {
 				$hostname = "localhost";
-				$dbname = "walapop";
+				$dbname = "wallapop";
 				$username = "root";
-				$pw = "andrea1234";
+				$pw = "13246589";
 				$pdo = new PDO ("mysql:host=$hostname;dbname=$dbname","$username","$pw");
 			
 			} catch (PDOException $e) {
@@ -26,9 +42,9 @@
 	function mostrarProductosPorFecha(){
 		 try {
 						    $hostname = "localhost";
-						    $dbname = "Gualahop";
-						    $username = "root";
-						    $pw = "andrea1234";
+						    $dbname = "wallapop";
+							$username = "root";
+							$pw = "13246589";
 						    $pdo = new PDO ("mysql:host=$hostname;dbname=$dbname","$username","$pw");
 						  } catch (PDOException $e) {
 						    echo "Failed to get DB handle: " . $e->getMessage() . "\n";
@@ -110,7 +126,17 @@
 			<div class="side-menu-container">
 			<ul class="nav navbar-nav">
 
-			<li><a href="#"><span class="glyphicon glyphicon-user"></span>UserName<br>2 productos</a></li>
+			<li>
+
+				<?php
+					if($_SESSION["email"]==null){
+						print_r($_SESSION);
+						echo 'email no esta disponible';
+					}
+
+				?>
+					<a href="#"><span class="glyphicon glyphicon-user"></span>Usuario<br>2 productos</a>
+			</li>
 			<li class="active"><a href="#"><span class="glyphicon glyphicon-envelope"></span>Mensajes</a></li>
 			<!--<li><a href="#"><span class="glyphicon glyphicon-th-list"></span>Categorias</a></li>-->
 			<li class="panel panel-default" id="dropdown">

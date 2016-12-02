@@ -54,7 +54,9 @@ session_start();
 
 
 			<?php
+
 			$dades = $_POST;
+			print_r($_POST);
 
 			//datos formulario html
 			require('formulari/formulari.php');

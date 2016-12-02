@@ -3,7 +3,7 @@
 
 session_start();
 
-$_SESSION['email']='aaal@hotmail.com';
+//$_SESSION['email']='aaal@hotmail.com';
 
 //al@hotmail.com
 //aaal@hotmail.com

@@ -48,9 +48,9 @@
 		function comprobarLogin(){
 			try {
 				$hostname = "localhost";
-				$dbname = "Gualahop";
+				$dbname = "wallapop";
 				$username = "root";
-				$pw = "andrea1234";
+				$pw = "13246589";
 				$pdo = new PDO ("mysql:host=$hostname;dbname=$dbname","$username","$pw");
 			
 			} catch (PDOException $e) {
