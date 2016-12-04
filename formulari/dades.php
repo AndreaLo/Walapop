@@ -20,9 +20,9 @@ if(isset($registre["nombre"])){
 
   try {
     $hostname = "localhost";
-    $dbname = "walapop";
-    $username = "andrea";
-    $pw = "andrea1234";
+    $dbname = "wallapop";
+    $username = "root";
+    $pw = "13246589";
     $pdo = new PDO ("mysql:host=$hostname;dbname=$dbname","$username","$pw");
   } catch (PDOException $e) {
     echo "Failed to get DB handle: " . $e->getMessage() . "\n";
