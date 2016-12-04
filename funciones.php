@@ -1,80 +1,54 @@
 <?php	
-	
-
-
-	function cantidadProductos(){
-
-		
-
-			$email = $_SESSION['email'];
-			try {
-				$hostname = "localhost";
-				$dbname = "wallapop";
-				$username = "root";
-				$pw = "13246589";
-				$pdo = new PDO ("mysql:host=$hostname;dbname=$dbname","$username","$pw");
-
-			
-			} catch (PDOException $e) {
-				 echo "El acceso a la DDBB a fallado: " . $e->getMessage() . "\n";
-				 exit;
-			}
-			
-			$query = $pdo->prepare("SELECT ID FROM USUARIOS where email ='".$email."'");
-			$query->execute();
-			
-			
-
-			$row = $query->fetch();
-			while ( $row ) {
-				
-				$codi = $row["ID"];
-				$row = $query->fetch();
-			}
+	function abrirConexion(){
+		try {
+			$hostname = "localhost";
+			$dbname = "walapop";
+			$username = "andrea";
+			$pw = "andrea1234";
 
 			$pdo = new PDO ("mysql:host=$hostname;dbname=$dbname","$username","$pw");
-			$query = $pdo->prepare("SELECT count(ID_PRODUCTO) FROM PRODUCTOS where ID_VENDEDOR ='".$codi."'");
-			$query->execute();
-			$row = $query->fetch();
-
-			while ( $row ) {
-				
-				$cantidad=$row["count(ID_PRODUCTO)"];
-				$row = $query->fetch();
-			}
-			
-			unset($pdo); 
-			unset($query);
-
-			$cantidad = '<span class=""></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Productos '.$cantidad.'</a>';	
-			return $cantidad;
-
+		} catch (PDOException $e) {
+			echo "Failed to get DB handle: " . $e->getMessage() . "\n";
+			exit;
 		}
+		return $pdo;
+	}
+	
+	function cantidadProductos(){
+		$email = $_SESSION['email'];
+		$pdo = abrirConexion();
+		
+		$query = $pdo->prepare("SELECT ID FROM USUARIOS where email ='".$email."'");
+		$query->execute();
 
+		$row = $query->fetch();
+		while ( $row ) {		
+			$codi = $row["ID"];
+			$row = $query->fetch();
+		}
+		$query = $pdo->prepare("SELECT count(ID_PRODUCTO) FROM PRODUCTOS where ID_VENDEDOR ='".$codi."'");
+		$query->execute();
+		$row = $query->fetch();
 
+		while ( $row ) {
+			
+			$cantidad=$row["count(ID_PRODUCTO)"];
+			$row = $query->fetch();
+		}
+		
+		unset($pdo); 
+		unset($query);
 
+		$cantidad = '<span class=""></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Productos '.$cantidad.'</a>';	
+		return $cantidad;
+	}
 
 	function mostrarNombreUsu(){
-
-
-
 			$email = $_SESSION['email'];
-			try {
-				$hostname = "localhost";
-				$dbname = "wallapop";
-				$username = "root";
-				$pw = "13246589";
-				$pdo = new PDO ("mysql:host=$hostname;dbname=$dbname","$username","$pw");
-			
-			} catch (PDOException $e) {
-				 echo "El acceso a la DDBB a fallado: " . $e->getMessage() . "\n";
-				 exit;
-			}
+			$pdo = abrirConexion();
 			
 			$query = $pdo->prepare("SELECT NOMBRE,ID FROM USUARIOS where email ='".$email."'");
 			$query->execute();
-			
-			
 
 			$row = $query->fetch();
 			while ( $row ) {
@@ -83,53 +57,27 @@
 				$codi = $row["ID"];
 				$row = $query->fetch();
 			}
-
-
 			unset($pdo); 
 			unset($query);
-
 			return $nombre;
-		}
-
-
-
+	}
 
 	function mostrarCategoria(){
-			try {
-			$hostname = "localhost";
-			$dbname = "wallapop";
-			$username = "root";
-			$pw = "13246589";
-			$pdo = new PDO ("mysql:host=$hostname;dbname=$dbname","$username","$pw");
+		$pdo = abrirConexion();
+		$query = $pdo->prepare("select id, nombre FROM CATEGORIAS;");
+		$query->execute();
 		
-		} catch (PDOException $e) {
-			echo "El acceso a la DDBB a fallado: " . $e->getMessage() . "\n";
-			exit;
-		}
-			$query = $pdo->prepare("select id, nombre FROM CATEGORIAS;");
-			$query->execute();
-			
+		$row = $query->fetch();
+		while ( $row ) {
+			echo "<li><a href='categoria.php?id=".$row['id']."'>".$row['nombre']."</a></li>";	
 			$row = $query->fetch();
-			while ( $row ) {
-				echo "<li><a href='categoria.php?id=".$row['id']."'>".$row['nombre']."</a></li>";	
-				$row = $query->fetch();
-			}
-			unset($pdo); 
-			unset($query);
+		}
+		unset($pdo); 
+		unset($query);
 	}
 	//
 	function mostrarProductosPorCategoria($id){
-		try {
-			$hostname = "localhost";
-			$dbname = "wallapop";
-			$username = "root";
-			$pw = "13246589";
-			$pdo = new PDO ("mysql:host=$hostname;dbname=$dbname","$username","$pw");
-		
-		} catch (PDOException $e) {
-			echo "El acceso a la DDBB a fallado: " . $e->getMessage() . "\n";
-			exit;
-		}
+		$pdo = abrirConexion();
 		//comprobarcion de que no exista el email previamente
 		$query = $pdo->prepare("SELECT * FROM PRODUCTOS WHERE id_categoria = ".$id." ORDER BY fecha_publicacion desc"); 
 		$query->execute();
@@ -147,16 +95,7 @@
 		echo '</div>';	
 	}
 	function mostrarProductosPorFecha(){
-		 try {
-			$hostname = "localhost";
-			$dbname = "wallapop";
-			$username = "root";
-			$pw = "13246589";
-			$pdo = new PDO ("mysql:host=$hostname;dbname=$dbname","$username","$pw");
-		} catch (PDOException $e) {
-			echo "Failed to get DB handle: " . $e->getMessage() . "\n";
-			exit;
-		}
+		$pdo = abrirConexion();
 		//comprobarcion de que no exista el email previamente
 		$query = $pdo->prepare("SELECT * FROM PRODUCTOS WHERE IMAGEN<>'null' ORDER BY fecha_publicacion desc"); //order by fecha desc
 		$query->execute();
@@ -176,17 +115,7 @@
 		echo '</div>';	
 	}
 	function comprobarLogin(){
-		try {
-			$hostname = "localhost";
-			$dbname = "wallapop";
-			$username = "root";
-			$pw = "13246589";
-			$pdo = new PDO ("mysql:host=$hostname;dbname=$dbname","$username","$pw");
-		
-		} catch (PDOException $e) {
-			 $_SESSION['permiso']=false;
-			exit;
-		}
+		$pdo = abrirConexion();
 		try{
 			$query = $pdo->prepare("select password FROM USUARIOS WHERE email ='".$_POST['email']."';");
 			$query->execute();
@@ -210,24 +139,11 @@
 	}	
 
 	function mostrarBusqueda($busqueda){
-
-		 try {
-			$hostname = "localhost";
-			$dbname = "wallapop";
-			$username = "root";
-			$pw = "13246589";
-			$pdo = new PDO ("mysql:host=$hostname;dbname=$dbname","$username","$pw");
-		} catch (PDOException $e) {
-			echo "Failed to get DB handle: " . $e->getMessage() . "\n";
-			exit;
-		}
+		$pdo = abrirConexion();
 		//comprobarcion de que no exista el email previamente
 		$query = $pdo->prepare("SELECT * FROM PRODUCTOS WHERE lower(TITULO) like lower('%$busqueda%') or lower(TITULO) like lower('$busqueda%') or lower(TITULO) like lower('$busqueda%')"); //order by fecha desc
 		$query->execute();
-		$row = $query->fetch();
-
-		
-
+		$row = $query->fetch();		
 		if(!isset($row["NOMBRE"])){
 			echo '<div class="notProducts"><br><h1>[ No se han encontrado resultados]</h1></div>';
 			mostrarProductosPorFecha();	
@@ -244,11 +160,6 @@
 				$row = $query->fetch();
 			}	
 			echo '</div>';	
-
 		}
-		
-
-
-
 	}
 ?>
