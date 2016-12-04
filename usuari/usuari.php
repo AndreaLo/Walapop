@@ -171,6 +171,17 @@ function printar_Cantitatfavoritos($pdo,$codi){
   							echo '</div>';
 }
 
+function printar_agregarProductos($pdo,$codi){
+
+		if(!$_SESSION["email"]==null){
+
+					echo	'<div class="boton">';
+					echo		'<div class="agregar-productos">';
+					echo			'<p>+</p>';
+					echo		'</div>';
+					echo	'</div>';
+		}
+}
 function printar_productesVenta($pdo,$codi){
 
 							//IMPRIMIR BOTON PARA AGREGAR PRODUCTOS QUE ESTA EN MEDIO DE LA PANTALLA

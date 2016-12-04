@@ -61,17 +61,8 @@ require('funciones.php');
 						printar_CantitatValoraciones($pdo,$codi);
 
 						printar_Cantitatfavoritos($pdo,$codi);
-						?>
 						
-	
-			<div class="boton">
-						<div class="agregar-productos">
-							<p>+</p>
-						</div>
-					</div>
-		
-		
-					<?php
+						printar_agregarProductos($pdo,$codi);
 
 						printar_productesVenta($pdo,$codi);
 						
