@@ -60,7 +60,7 @@
 			
 		<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-12">
+			
 			<div class="side-body">
 			
 				<div class="loginPanel">
@@ -83,7 +83,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		
 		</div>
 		</div>
 	</div>	
