@@ -1,4 +1,24 @@
 
+ @media (max-width: 760px) {
+
+ 	.side-body {
+ 		margin-top: 70px;
+ 	}
+  
+ 
+ 	
+ }
+  @media (min-width: 760px) {
+
+ 	.side-body {
+ 		margin-top: 20px;
+ 	}
+  
+ 
+ 	
+ }
+
+
 *{
 	box-sizing: border-box;
 }
@@ -8,6 +28,7 @@
 	
 	display: flex;
 	flex-direction: column;
+	
 
 
 }
@@ -51,3 +72,51 @@
 	 flex-wrap: wrap;
 
 }
+
+/*CLASES  PARA USUAIRO Y PRODUCTOS EN EL MENU*/
+/*REDUCE SU PADDING Y ESTAN MAS JUNTOS QUE LOS DEMAS*/
+.side-menu .navbar-nav li a.usuario {
+	padding-bottom:5px;
+}
+
+.side-menu .navbar-nav li a.usuario2 {
+	padding-top:5px;
+}
+
+.precio{
+	color:#00796b;
+}
+
+.grupo p  {
+	padding: 15px;
+	display: flex;
+
+	justify-content: center;
+}
+
+/*
+.side-menu{
+	background-color: #a7ffeb;
+}
+
+.navbar-default .navbar-nav > .active > a{
+	background: #e7e7e7;
+}
+
+ .navbar-default .navbar-nav > .active > a:hover ,.navbar-default .navbar-nav > .active > a:focus{
+	background: yellow;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{
+	background: yellow;
+}
+
+.navbar-default .navbar-nav > li > a {
+	background: rgba(24,255,255,0.2);
+	color: black;
+	
+}
+.navbar-default .navbar-nav > li {
+	border-color: white;
+}
+*/

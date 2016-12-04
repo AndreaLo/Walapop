@@ -3,6 +3,7 @@
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
 		<div class="brand-wrapper">
+	
 			<!-- Hamburger -->
 			<button type="button" class="navbar-toggle">
 				<span class="sr-only">Toggle navigation</span>
@@ -12,7 +13,7 @@
 			</button>
 			<!-- Brand -->
 				<div class="brand-name-wrapper">
-					<a class="navbar-brand" href="#">
+					<a class="navbar-brand" href="index.php">
 						Wallapop
 					</a>
 				</div>
@@ -23,9 +24,9 @@
 				<!-- Search body -->
 				<div id="search" class="panel-collapse collapse">
 					<div class="panel-body">
-						<form class="navbar-form" role="search">
+						<form class="navbar-form" role="search" action="index.php" method="POST">
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Search">
+								<input type="text" class="form-control" placeholder="Search" name="busqueda">
 							</div>
 							<button type="submit" class="btn btn-default "><span class="glyphicon glyphicon-ok"></span></button>
 						</form>
@@ -36,16 +37,29 @@
 		<!-- Main Menu -->
 		<div class="side-menu-container">
 		<ul class="nav navbar-nav">
-			<li>
-				<?php
+			<li class="active">
+			<?php
+					//SI SESSION EMAIL ES NULL IMPRIMIRA USUARIO POR DEFECTO Y POSIBILIDAD DE LOGIN
 					if($_SESSION["email"]==null){
-						echo "<a href='login.php'><span class='glyphicon glyphicon-user'></span>Login</a>";
+						
+						
+						echo '<a href="usuario.php" class="usuario"><h4><span class="glyphicon glyphicon-user"></span>Usuario</h4></a>';
+							echo '<a href="login.php"><span class="fa fa-lock fa-lg"></span> &nbsp;&nbsp;Log in</a>';
+					//SI SESSION EMAIL NO ES NULL IMPRIME EL NOMBRE DE USUARIO 
+					//Y LA CANTIDAD DE PRODUCTOS QUE TIENE A LA VENTA
+					}else{
+						$nombre = mostrarNombreUsu();
+						$cantidad= cantidadProductos();
+						
+						echo $nombre;
+						echo $cantidad;
+
+
 					}
-					else echo "<a href='usuario.php'><span class='glyphicon glyphicon-user'></span>Usuario<br>2 productos</a>";
-				?>
+			?>
 					
 			</li>
-			<li class="active"><a href="#"><span class="glyphicon glyphicon-envelope"></span>Mensajes</a></li>
+			<li ><a href="#"><span class="glyphicon glyphicon-envelope"></span>Mensajes</a></li>
 			<!--<li><a href="#"><span class="glyphicon glyphicon-th-list"></span>Categorias</a></li>-->
 			<li class="panel panel-default" id="dropdown">
 				<a data-toggle="collapse" href="#dropdown-lvl1">
@@ -56,7 +70,9 @@
 					<div class="panel-body">
 						<ul class="nav navbar-nav">
 							<?php
+						
 								mostrarCategoria();
+							
 							?>	
 						</ul>
 					</div>

@@ -1,14 +1,41 @@
  
 <?php
 
+function printar_menuUsuari(){
+
+	if(!$_SESSION["email"]==null){
+
+
+		echo '<div class="desplegable">';
+				       echo '<ul class="nav navbar-nav">';
+					        echo '<li class="dropdown">';
+					          echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog pull-right" style="font-size:48px;"></span></a>';
+					          echo '<ul class="dropdown-menu">';
+					            echo '<li><a href="#">Configurar cuenta <span class="glyphicon glyphicon-cog pull-right" style="font-size:25px;"></span></a></li>';
+					            echo '<li class="divider"></li>';
+					           echo '<!-- <li><a href="#">User stats <span class="glyphicon glyphicon-stats pull-right" style="font-size:25px;"></span></a></li>';
+					            echo '<li class="divider"></li>';
+					            echo '<li><a href="#">Messages <span class="badge pull-right" style="font-size:25px;"> 42 </span></a></li>';
+					            echo '<li class="divider"></li>';
+					            echo '<li><a href="#">Favourites Snippets <span class="glyphicon glyphicon-heart pull-right" style="font-size:25px;"></span></a></li>';
+					            echo '<li class="divider"></li>-->';
+					            echo '<li><a href="index.php?reset=1">Cerrar Sesion <span class="glyphicon glyphicon-off pull-right" tyle="font-size:25px;"></span></a></li>';
+					          echo '</ul>';
+					        echo '</li>';
+					      echo '</ul>';
+					     echo '</div>';
+
+	}
+}
+
 function conexio(){
 
  try {
 
 						    $hostname = "localhost";
-						    $dbname = "walapop";
-						    $username = "andrea";
-						    $pw = "andrea1234";
+						    $dbname = "wallapop";
+						    $username = "root";
+						    $pw = "13246589";
 
 						     $pdo = new PDO ("mysql:host=$hostname;dbname=$dbname","$username","$pw");
 						  } catch (PDOException $e) {
@@ -164,7 +191,7 @@ function printar_productesVenta($pdo,$codi){
 						    	echo '<div class="grupo separacion altura1">';
     						 //echo '<div class="grupo separacion">';
    							 echo '<img src="'.$row["IMAGEN"].'" alt="'.$row["TITULO"].'" width="250" height="250" class="separacion"/>'."\n";
-   							 echo '<h4>'.$row["PRECIO"].'€ </h4>'."\n";
+   							 echo '<h4 class="precio"> '.$row["PRECIO"].'€ </h4>'."\n";
    							 echo '<h4>'.$row["TITULO"].'</h4>'."\n";
    							 echo '<strong>'.$row["DESCRIPCION"].'</strong>'."\n";
    							 echo '</div>';

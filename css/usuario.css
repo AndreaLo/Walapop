@@ -1,3 +1,20 @@
+@media (max-width: 760px) {
+
+ 
+	
+	.contadores div {
+		border-right: 2px solid white;
+		width: 100%;
+		border-bottom: 2px solid gray;
+		
+	}
+	.contadores div:last-child{
+	
+	
+	border-bottom: none;
+}
+}
+
 .contenedorFoto {
 	width:100%;
 	justify-content: center;
@@ -37,14 +54,21 @@
 	margin-bottom: 0;
 	font-size: 22px;
 }
+@media (min-width: 760px) {
 
+.contadores div{
+	border-right: 2px solid gray;
+}
+ 
+
+}
 .contadores div{
 	padding-left: 20px;
 	padding-right: 80px;
 	/*padding-right: 30px;*/
 	/*background: gray;*/
 	margin: 5px;
-	border-right: 2px solid gray;
+	
 
 	display: flex;
 	align-items: center;
@@ -122,6 +146,7 @@
 	color: gray;
 	display: flex;
 	justify-content: center;
+	margin: 20px;
 
 }
 .agregar-productos{
@@ -160,23 +185,55 @@
 .desplegable .nav {
    
     float: right;
+    position: absolute;
+    right:15px;
    
     
 }
+
+
+
+.glyphicon .glyphicon-cog .pull-right{
+	z-index: 1000;
+	box-shadow: 10px 2px 2px blue;
+}
+.navbar-nav .open .dropdown-menu{
+	background: white;
+}
+.dropdown a{
+	color: gray;
+	transition: color 0.2s;
+
+}
+.dropdown a:hover{
+	color: #546e7a;
+	background: transparent;
+
+	
+}
+.dropdown-toggle:hover{
+	background: transparent;
+}
+
+
+
 .nav > li > a:hover{
+	background:white;
+}
+.nav > li >  a:focus{
 	background: white;
 }
 
 .dropdown-toggle:hover{
-	background: white;
+	background:white;
 }
 
 .nav > li > a:hover, .nav > li > a:focus{
-	background: white;
+	background:transparent;
 }
 
-.nav .open > a, .nav .open > a:hover, .nav .open > a:focus{
-	background: white;
+.nav .open > a:focus{
+	background:transparent;
 }
 
 
@@ -184,18 +241,18 @@
     /*background:#fff;*/
 }
 .dropdown-menu > li > a:hover{
-	background: white;
+	background:white;
 }
 
 .dropdown-menu > ul a:hover{
-	background: white;
+	background:white;
 }
 .nav > li > a:hover{
-	background: white;
+	background: transparent;
 }
 .nav .open > a, .nav .open > a:hover {
 
-	background: white;
+	background:transparent;
 
 }
 .dropdown {

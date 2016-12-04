@@ -1,13 +1,20 @@
 <?php 
 session_start();
 require('funciones.php');
+//EN CASO DE NO EXISITIR SESSION_EMAIL
+//SE CREA A NULL
+if(!isset($_SESSION["email"])){
+	$_SESSION["email"]=null;
+}
+//EN CASO DE CERRAR SESSION, HACEMOS UN DESTROY
+//Y ASIGNAMOS A NULL
 if(isset($_GET["reset"])){
-	print_r($_SESSION);
+	
 	session_destroy();
 	session_start();	
-	echo 'sesion destrozada';
 	$_SESSION["email"]=null;
-	print_r($_SESSION);
+	
+
 }
 ?>
 
@@ -21,6 +28,7 @@ if(isset($_GET["reset"])){
 		<link rel="stylesheet"  href="css/bootstrap.css"/>
 		<link rel="stylesheet" href="css/estil.css"/>
 		<link rel="stylesheet" href="css/principal.css"/>
+		<link rel="stylesheet" href="css/usuario.css"/>
 		<link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script>
@@ -35,11 +43,20 @@ if(isset($_GET["reset"])){
 		<!-- Main Content -->
 		<div class="container-fluid">
 			<div class="side-body">
-				<h1> Main Content here </h1>
-				<pre> Resize the screen to view the left slide menu </pre>
+				<!--<h1> Main Content here </h1>
+				<pre> Resize the screen to view the left slide menu </pre>-->
 				<div id="busquedaCategoria">
+					
 					<?php
-						 mostrarProductosPorFecha();								
+							$post = $_POST;
+							if(isset($post["busqueda"])){
+								$busqueda = $post["busqueda"];
+								mostrarBusqueda($busqueda);
+									
+							}else{
+								mostrarProductosPorFecha();	
+							}
+						 							
 					?>
 				</div>
 			</div>

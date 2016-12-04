@@ -24,6 +24,7 @@
 		<link rel="stylesheet"  href="css/bootstrap.css"/>
 		<link rel="stylesheet" href="css/estil.css"/>
 		<link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/principal.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<style>
 			.loginPanel{
@@ -31,6 +32,7 @@
 					padding-right: 30%;
 					padding-top: 10%;
 					padding-bottom: 20%;
+					
 				}
 			.tituloPanel{
 					text-align: center;
@@ -57,7 +59,10 @@
 		<!-- Main Content -->
 			
 		<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
 			<div class="side-body">
+			
 				<div class="loginPanel">
 					<div class="panel panel-default">
 						<div class="panel-body">
@@ -78,6 +83,8 @@
 					</div>
 				</div>
 			</div>
+		</div>
+		</div>
 		</div>
 	</div>	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
