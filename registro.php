@@ -3,6 +3,7 @@ error_reporting(E_ALL);
 ini_set("display_errors", 1);
 //include("file_with_errors.php");
 session_start();
+require('funciones.php');
 ?>
 
 <!DOCTYPE html>
@@ -40,13 +41,11 @@ session_start();
 	<body onload="Resize()">
 		<div class="row">
 		<!-- Menu -->
-		<div class="side-menu">
 		<?php
 			//imprimir la estructura y el menu navegador
-			require('formulari/plantilla.php');
+			//require('formulari/plantilla.php');
+			require('menuComun.php');
 		?>
-	
-		</div>
 		<!-- Main Content -->
 		<div class="container-fluid" id="contenedor">
 			<div class="side-body">
@@ -75,22 +74,17 @@ session_start();
 				//sino, volver a imprimir registro
 				}else{
 					imprimir_formulari();
-				}
-				
+				}				
 			}
 			?>
-
 		</div>;
 		</div>
-		</div>
-		
+		</div>		
 	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
 	<script src="js/javas.js"></script> 
-	<script type="text/javascript">
-					
-  
+	<script type="text/javascript">  
 </script>
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<!-- Include all compiled plugins (below), or include individual files as needed -->

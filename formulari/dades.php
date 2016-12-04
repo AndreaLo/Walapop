@@ -20,8 +20,8 @@ if(isset($registre["nombre"])){
 
   try {
     $hostname = "localhost";
-    $dbname = "Gualahop";
-    $username = "root";
+    $dbname = "walapop";
+    $username = "andrea";
     $pw = "andrea1234";
     $pdo = new PDO ("mysql:host=$hostname;dbname=$dbname","$username","$pw");
   } catch (PDOException $e) {

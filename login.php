@@ -1,7 +1,9 @@
 <?php
 	session_start();
+	require('funciones.php');
 	if(!isset($_SESSION['permiso'])){
 		$_SESSION['permiso']=null;
+		$_SESSION['email']=null;
 	}
 	if(isset($_POST['submit'])){
 		comprobarLogin();
@@ -13,7 +15,6 @@
 			header('Location: index.php');
 		}
 	}
-	
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,61 +45,44 @@
 				border-bottom: 0px !important;
 			}
 		</style>
-		<?php	
-		function comprobarLogin(){
-			try {
-				$hostname = "localhost";
-				$dbname = "wallapop";
-				$username = "root";
-				$pw = "13246589";
-				$pdo = new PDO ("mysql:host=$hostname;dbname=$dbname","$username","$pw");
-			
-			} catch (PDOException $e) {
-				 $_SESSION['permiso']=false;
-				exit;
-			}
-			try{
-				$query = $pdo->prepare("select password FROM USUARIOS WHERE email ='".$_POST['email']."';");
-				$query->execute();
-						
-				$row = $query->fetch();
-				if($row==null){
-					echo "mail null";
-					$_SESSION['permiso']=false;
-					}		
-				$EncPassword = hash('sha512', $_POST['password']);
-				
-				if($EncPassword == $row['password']){ 
-					$_SESSION['permiso']=true;
-				}
-				else $_SESSION['permiso']=false;
-			}catch (PDOException $e){
-				$_SESSION['permiso']=false;
-			}
-			unset($pdo); 
-			unset($query);
-			}		
-		?>
 	</head>
 	<body>
-		<div class="loginPanel">
-			<div class="panel panel-default">
-				<div class="panel-body">
-					<form action="" method="POST">
-						<p class="tituloPanel"><strong>ENTRAR</strong></p>
-						<div class="form-group">
-							<label for="email">Email address:</label>
-							<input type="email" name="email" class="form-control" id="email">
+		<div class="row">
+		<!-- Menu -->
+		<div class="side-menu">
+		<?php
+			require('menuComun.php');
+		?>
+		</div>
+		<!-- Main Content -->
+			
+		<div class="container-fluid">
+			<div class="side-body">
+				<div class="loginPanel">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<form action="" method="POST">
+								<p class="tituloPanel"><strong>ENTRAR</strong></p>
+								<div class="form-group">
+									<label for="email">Email address:</label>
+									<input type="email" name="email" class="form-control" id="email">
+								</div>
+								<div class="form-group">
+									<label for="pwd">Password:</label>
+									<input type="password" name="password" class="form-control" id="pwd">
+								</div>
+								<button type="submit" name="submit" class="btn btn-warning">Enviar</button>
+								<a href="registro.php" id='nuevoRegistro'><p class="text-warning">Me quiero registrar!</p></a>
+							</form>	
 						</div>
-						<div class="form-group">
-							<label for="pwd">Password:</label>
-							<input type="password" name="password" class="form-control" id="pwd">
-						</div>
-						<button type="submit" name="submit" class="btn btn-warning">Enviar</button>
-						<a href="registro.php" id='nuevoRegistro'><p class="text-warning">Me quiero registrar!</p></a>
-					</form>	
+					</div>
 				</div>
 			</div>
 		</div>
+	</div>	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+	<script src="js/javas.js"></script> 
 	</body>
 </html>
