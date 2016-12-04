@@ -174,7 +174,7 @@ function printar_Cantitatfavoritos($pdo,$codi){
 function printar_productesVenta($pdo,$codi){
 
 							//IMPRIMIR BOTON PARA AGREGAR PRODUCTOS QUE ESTA EN MEDIO DE LA PANTALLA
-  							echo '<div class="boton"><div class="agregar-productos"><p>+</p></div></div>';
+  							//echo '<div class="boton"><div class="agregar-productos"><p>+</p></div></div>';
   				
   							//consulta para imprimir productos en venta
   						
@@ -195,9 +195,13 @@ function printar_productesVenta($pdo,$codi){
    							 echo '<h4>'.$row["TITULO"].'</h4>'."\n";
    							 echo '<strong>'.$row["DESCRIPCION"].'</strong>'."\n";
    							 echo '</div>';
+
+   					
+
 						    	    						
    						 	$row = $query->fetch();
   							}
+  							echo '</div>';
  }
  
 ?>

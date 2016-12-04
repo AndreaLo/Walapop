@@ -61,16 +61,29 @@ require('funciones.php');
 						printar_CantitatValoraciones($pdo,$codi);
 
 						printar_Cantitatfavoritos($pdo,$codi);
+						?>
+						
+	
+			<div class="boton">
+						<div class="agregar-productos">
+							<p>+</p>
+						</div>
+					</div>
+		
+		
+					<?php
 
 						printar_productesVenta($pdo,$codi);
 						
 
 					?>
 
-					
-			</div>
+
+
 		</div>
 		</div>
+				
+
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
