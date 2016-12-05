@@ -56,7 +56,7 @@ require('funciones.php');
 			<?php
 
 			$dades = $_POST;
-			//print_r($_POST);
+			print_r($_POST);
 
 			//datos formulario html
 			require('formulari/formulari.php');
