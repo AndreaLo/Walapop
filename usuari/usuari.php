@@ -33,9 +33,9 @@ function conexio(){
  try {
 
 						    $hostname = "localhost";
-						    $dbname = "wallapop";
+						    $dbname = "Gualahop";
 						    $username = "root";
-						    $pw = "13246589";
+						    $pw = "andrea1234";
 
 						     $pdo = new PDO ("mysql:host=$hostname;dbname=$dbname","$username","$pw");
 						  } catch (PDOException $e) {
@@ -171,21 +171,10 @@ function printar_Cantitatfavoritos($pdo,$codi){
   							echo '</div>';
 }
 
-function printar_agregarProductos($pdo,$codi){
-
-		if(!$_SESSION["email"]==null){
-
-					echo	'<div class="boton">';
-					echo		'<div class="agregar-productos">';
-					echo			'<p>+</p>';
-					echo		'</div>';
-					echo	'</div>';
-		}
-}
 function printar_productesVenta($pdo,$codi){
 
 							//IMPRIMIR BOTON PARA AGREGAR PRODUCTOS QUE ESTA EN MEDIO DE LA PANTALLA
-  							//echo '<div class="boton"><div class="agregar-productos"><p>+</p></div></div>';
+  							echo '<div class="boton"><div class="agregar-productos"><p>+</p></div></div>';
   				
   							//consulta para imprimir productos en venta
   						
@@ -206,13 +195,9 @@ function printar_productesVenta($pdo,$codi){
    							 echo '<h4>'.$row["TITULO"].'</h4>'."\n";
    							 echo '<strong>'.$row["DESCRIPCION"].'</strong>'."\n";
    							 echo '</div>';
-
-   					
-
 						    	    						
    						 	$row = $query->fetch();
   							}
-  							echo '</div>';
  }
  
 ?>

@@ -14,7 +14,7 @@
 			<!-- Brand -->
 				<div class="brand-name-wrapper">
 					<a class="navbar-brand" href="index.php">
-						Wallapop
+						Gualahop
 					</a>
 				</div>
 			<!-- Search -->
@@ -78,8 +78,17 @@
 					</div>
 				</div>
 			</li>
-		
-			<li><a href="#"><span class="glyphicon glyphicon-map-marker"></span>Nuevo en tu zona</a></li>
+			
+			<li>
+				<?php
+					if($_SESSION['email']!=null){
+						echo '<a href="nuevoEnTuZona.php"><span class="glyphicon glyphicon-map-marker"></span>Nuevo en tu zona</a></li>';
+					}
+					else {
+						echo '<a href="login.php"><span class="glyphicon glyphicon-map-marker"></span>Nuevo en tu zona</a></li>';
+					}
+				?>
+				
 			<li><a href="#"><span class="fa fa-smile-o"></span> Invita a amigos</a></li>
 			<li><a href="#"><span class="fa fa-question-circle"></span> Ajuda</a></li>
 		</ul>

@@ -16,7 +16,6 @@ require('funciones.php');
 		<link rel="stylesheet"  href="css/bootstrap.css"/>
 		<link rel="stylesheet" href="css/estil.css"/>
 		<link rel="stylesheet" href="css/registro.css"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<style>
 		</style>
 
@@ -56,7 +55,7 @@ require('funciones.php');
 			<?php
 
 			$dades = $_POST;
-			//print_r($_POST);
+			print_r($_POST);
 
 			//datos formulario html
 			require('formulari/formulari.php');

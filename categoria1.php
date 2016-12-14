@@ -2,9 +2,9 @@
 	function mostrarCategoria(){
 			try {
 				$hostname = "localhost";
-				$dbname = "wallapop";
+				$dbname = "Gualahop";
 				$username = "root";
-				$pw = "13246589";
+				$pw = "andrea1234";
 				$pdo = new PDO ("mysql:host=$hostname;dbname=$dbname","$username","$pw");
 			
 			} catch (PDOException $e) {
@@ -26,9 +26,9 @@
 	function mostrarProductosElectronica(){
 		 try {
 						    $hostname = "localhost";
-						    $dbname = "wallapop";
+						    $dbname = "Gualahop";
 						    $username = "root";
-						    $pw = "13246589";
+						    $pw = "andrea1234";
 						    $pdo = new PDO ("mysql:host=$hostname;dbname=$dbname","$username","$pw");
 						  } catch (PDOException $e) {
 						    echo "Failed to get DB handle: " . $e->getMessage() . "\n";
@@ -65,7 +65,6 @@
 		<link rel="stylesheet" href="css/principal.css"/>
 		<link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	</head>
 	<body>
 		<div class="row">

@@ -22,7 +22,6 @@ require('funciones.php');
 		<link rel="stylesheet" href="css/principal.css"/>
 		<link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 	
 	</head>
@@ -62,20 +61,16 @@ require('funciones.php');
 						printar_CantitatValoraciones($pdo,$codi);
 
 						printar_Cantitatfavoritos($pdo,$codi);
-						
-						printar_agregarProductos($pdo,$codi);
 
 						printar_productesVenta($pdo,$codi);
 						
 
 					?>
 
-
-
+					
+			</div>
 		</div>
 		</div>
-				
-
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

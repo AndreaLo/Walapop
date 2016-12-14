@@ -24,8 +24,8 @@ if(isset($_POST["nombre"])){
 
  try {
     $hostname = "localhost";
-    $dbname = "walapop";
-    $username = "andrea";
+    $dbname = "Gualahop";
+    $username = "root";
     $pw = "andrea1234";
     $pdo = new PDO ("mysql:host=$hostname;dbname=$dbname","$username","$pw");
   } catch (PDOException $e) {
@@ -96,8 +96,7 @@ echo '<div class="container espai-formulari">';
 					echo '</span>';
 					echo '<select class="form-control" name="codi" aria-hidden="true" id="codi" required autofocus>';
 					echo '<option name="option" value="" ></option>';
-					while ( $row ) {
-    
+					while ( $row ) {  
    						 echo '<option name="option" value="'.$row['CODIGO_POSTAL'].'"  required autofocus>'.$row['CODIGO_POSTAL'].' '.$row['NOMBRE'].'</option>';
    						 $row = $query->fetch();
   					}					

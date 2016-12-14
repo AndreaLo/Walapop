@@ -12,16 +12,8 @@
 	
 	
 	border-bottom: none;
-	}
-
-
-
-
-
-	
-	
 }
-
+}
 
 .contenedorFoto {
 	width:100%;
@@ -157,34 +149,35 @@
 	margin: 20px;
 
 }
+.agregar-productos{
 
+	
+}
 
-	.boton{
-		
-	margin-bottom: 20px;
+.boton {
 
-	/*display: flex;
-	align-items: center;
-	justify-content: center;*/
-		/*position: fixed;*/
-		
+	
+	width: 100%;
+	
+	display: flex;
+	justify-content: center
 
-
-	}
-	.agregar-productos {
-	box-shadow: 5px 5px 10px gray;
-	margin: 0 auto;
+}
+.agregar-productos {
 	color: white;
+	top: 650px;
+	position: fixed;
 	border-radius: 100px;
 	background: #18ffff;
 	font-size:35px;
 	width: 60px;
 	height: 60px;
-	text-align: center;
-	z-index: 1000;
+	display: flex;
+	justify-content: center
+	
+
 
 }
-
 
 
 

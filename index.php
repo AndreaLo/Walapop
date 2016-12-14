@@ -31,7 +31,6 @@ if(isset($_GET["reset"])){
 		<link rel="stylesheet" href="css/usuario.css"/>
 		<link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<script>
 		</script>
 	</head>

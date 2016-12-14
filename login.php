@@ -26,7 +26,6 @@
 		<link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/principal.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<style>
 			.loginPanel{
 					padding-left: 30%;
@@ -61,7 +60,7 @@
 			
 		<div class="container-fluid">
 		<div class="row">
-			
+			<div class="col-md-12">
 			<div class="side-body">
 			
 				<div class="loginPanel">
@@ -84,7 +83,7 @@
 					</div>
 				</div>
 			</div>
-		
+		</div>
 		</div>
 		</div>
 	</div>	
