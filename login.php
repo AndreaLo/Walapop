@@ -26,6 +26,7 @@
 		<link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/principal.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<meta name="viewport" content="width=device-width, user-scalable=no">
 		<style>
 			.loginPanel{
 					padding-left: 30%;

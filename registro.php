@@ -16,6 +16,7 @@ require('funciones.php');
 		<link rel="stylesheet"  href="css/bootstrap.css"/>
 		<link rel="stylesheet" href="css/estil.css"/>
 		<link rel="stylesheet" href="css/registro.css"/>
+		<meta name="viewport" content="width=device-width, user-scalable=no">
 		<style>
 		</style>
 

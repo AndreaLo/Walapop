@@ -154,28 +154,29 @@
 	
 }
 
-.boton {
+.boton{
+		
+	margin-bottom: 20px;
 
-	
-	width: 100%;
-	
-	display: flex;
-	justify-content: center
+	/*display: flex;
+	align-items: center;
+	justify-content: center;*/
+		/*position: fixed;*/
+		
 
-}
-.agregar-productos {
+
+	}
+	.agregar-productos {
+	box-shadow: 5px 5px 10px gray;
+	margin: 0 auto;
 	color: white;
-	top: 650px;
-	position: fixed;
 	border-radius: 100px;
 	background: #18ffff;
 	font-size:35px;
 	width: 60px;
 	height: 60px;
-	display: flex;
-	justify-content: center
-	
-
+	text-align: center;
+	z-index: 1000;
 
 }
 
